@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dars-57</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <div class="wrap">
+                <div id="toggle">
+                    <i class="indicator"></i>
+                </div>
+                <script>
+                    const body = document.querySelector('body')
+                    const toggle = document.getElementById('toggle');
+                    toggle.onclick = function(){
+                        toggle.classList.toggle('active');
+                        body.classList.toggle('active');
+                    }
+                </script>
+            </div>
+            <div class="wrap">
+                <button id="button">Saralash</button>
+                <input id="input" type="text" placeholder="Ismini kiriting">
+                <button id="btn">Qo'shish</button>
+            </div>
+            <div class="wrap">
+                <input id="index" type="number" placeholder="#">
+                <button id="del">O'chirish</button>
+            </div>
+            <div class="wrap1">
+                <ul id="list"></ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        const buttons = document.querySelectorAll('button')
+        buttons.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                let x = e.clientX - e.target.offsetLeft;
+                let y = e.clientY - e.target.offsetTop;
+
+                let ripples = document.createElement('span');
+                ripples.style.left = x + 'px';
+                ripples.style.top = y + 'px';
+                this.appendChild(ripples);
+
+                setTimeout(() => {
+                    ripples.remove()
+                }, 1000)
+            })
+        })
+    </script>
+    <script src="main.js"></script>
+</body>
+</html>
