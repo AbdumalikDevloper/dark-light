@@ -1,3 +1,4 @@
+// o'zgaruvchilar
 var elInput = document.querySelector('#input');
 var elButton = document.querySelector('#btn');
 var elList = document.querySelector('#list');
@@ -10,6 +11,8 @@ for (var i = 0; i < pupils.length; i++){
     item.textContent = pupils[i];
     elList.appendChild(item);
 };
+
+//saralash
 elBtn.addEventListener('click', function(){
     pupils.sort()
         elInput.value = '';
@@ -21,6 +24,7 @@ elBtn.addEventListener('click', function(){
         }
 });
 
+// qo`shish
 elButton.addEventListener('click', function(){
     if(elInput.value.trim() === ''){
         alert('O\'quvchi ismini kiriting!');
@@ -40,6 +44,7 @@ elButton.addEventListener('click', function(){
     }
 });
 
+//o`chirish
 var elIndex = document.querySelector('#index');
 var elDel = document.querySelector('#del');
 
@@ -55,5 +60,28 @@ elDel.addEventListener('click', function(){
     }
 });
 
+// dark light
+const body = document.querySelector('body')
+    const toggle = document.getElementById('toggle');
+    toggle.onclick = function(){
+    toggle.classList.toggle('active');
+    body.classList.toggle('active');
+}
 
+//animatsiya
+const buttons = document.querySelectorAll('button')
+    buttons.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            let x = e.clientX - e.target.offsetLeft;
+            let y = e.clientY - e.target.offsetTop;
 
+            let ripples = document.createElement('span');
+            ripples.style.left = x + 'px';
+            ripples.style.top = y + 'px';
+            this.appendChild(ripples);
+
+            setTimeout(() => {
+                ripples.remove()
+            }, 1000)
+        })
+    })

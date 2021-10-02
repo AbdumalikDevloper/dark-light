@@ -14,14 +14,6 @@
                 <div id="toggle">
                     <i class="indicator"></i>
                 </div>
-                <script>
-                    const body = document.querySelector('body')
-                    const toggle = document.getElementById('toggle');
-                    toggle.onclick = function(){
-                        toggle.classList.toggle('active');
-                        body.classList.toggle('active');
-                    }
-                </script>
             </div>
             <div class="wrap">
                 <button id="button">Saralash</button>
@@ -37,24 +29,6 @@
             </div>
         </div>
     </div>
-    <script>
-        const buttons = document.querySelectorAll('button')
-        buttons.forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                let x = e.clientX - e.target.offsetLeft;
-                let y = e.clientY - e.target.offsetTop;
-
-                let ripples = document.createElement('span');
-                ripples.style.left = x + 'px';
-                ripples.style.top = y + 'px';
-                this.appendChild(ripples);
-
-                setTimeout(() => {
-                    ripples.remove()
-                }, 1000)
-            })
-        })
-    </script>
     <script src="main.js"></script>
 </body>
 </html>
