@@ -12,6 +12,13 @@ for (var i = 0; i < pupils.length; i++){
 };
 elBtn.addEventListener('click', function(){
     pupils.sort()
+        elInput.value = '';
+        elList.textContent = '';
+        for (var i = 0; i < pupils.length; i++){
+            var item = document.createElement('li');
+            item.textContent = pupils[i];
+            elList.appendChild(item);
+        }
 });
 
 elButton.addEventListener('click', function(){
